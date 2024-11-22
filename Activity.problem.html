@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scatter Plot with Interactive Legends</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <svg id="figure1" viewBox="0 0 1000 1000"></svg>
+    <svg id="figure2" viewBox="0 0 1000 1000"></svg>
+</div>
+<div class="list-container">
+    <h3>Selected Cars</h3>
+    <ul id="selected-list"></ul>
+</div>
+
+<script src="js/scatterplot.problem.js"></script>
+<script>
+    d3.csv("./data/car_sample_data.csv").then(data => {
+        scatter_plot(data, "#figure1", "MPG vs Price", "Price", "MPG", "Weight", [], "Country", 150);
+        scatter_plot(data, "#figure2", "Weight vs Engine Size", "EngineSizeCI", "Weight", "Price", [], "Country", 150);
+    });
+</script>
+</body>
+</html>
